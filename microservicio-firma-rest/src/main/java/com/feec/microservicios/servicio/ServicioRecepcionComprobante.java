@@ -7,13 +7,12 @@ import com.feec.microservicios.controladores.modelo.ModeloRecepcionRespuesta;
 
 @Service
 public class ServicioRecepcionComprobante {
- 
+
 	public ModeloRecepcionRespuesta recepcionComprobante(ModeloRecepcion lComprobanteXML) {
 
-		ModeloRecepcionRespuesta lModeloRecepcion = new ModeloRecepcionRespuesta();
+		ModeloRecepcionRespuesta lModeloRecepcion = null;
 		if (lComprobanteXML.getLXML() == null) {
-			lModeloRecepcion.setMensajeRespuestaRecepcion("El xml se encuntra vacio");
-			lModeloRecepcion.setCodigoError("ERROR_DATO");
+			lModeloRecepcion = new ModeloRecepcionRespuesta("El xml se encuntra vacio", "ERROR_DATO");
 			return lModeloRecepcion;
 		}
 
